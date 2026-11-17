@@ -27,7 +27,7 @@ export function initDropzone() {
   input.addEventListener('change', () => { route(input.files); input.value = ''; });
   zone.addEventListener('click', (e) => { if (e.target.closest('select, label.model-pick')) return; input.click(); });
   zone.addEventListener('keydown', (e) => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target === zone) { e.preventDefault(); input.click(); }
+    if ((e.key === 'Enter' || e.key === ' ') && (e.target === zone || e.target.closest('.drop'))) { e.preventDefault(); input.click(); }
   });
 
   let depth = 0;

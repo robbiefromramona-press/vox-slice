@@ -201,7 +201,12 @@ export const tests = [{
     // ---- drop zone opens the file picker from the keyboard
     const zone = tid(page, 'drop-zone');
     await zone.focus();
-    const chooser = page.waitForEvent('filechooser', { timeout: 3000 }).then(() => true).catch(() => false);
+    // The filechooser event may take a moment to register after Enter in
+    // headless Chromium; wait up to 5 s, then fall back to a failed check.
+    const chooser = await Promise.race([
+      page.waitForEvent('filechooser', { timeout: 5000 }).then(() => true).catch(() => false),
+      page.waitForTimeout(5000).then(() => false),
+    ]);
     await page.keyboard.press('Enter');
     check('Enter on the drop zone opens the file picker', await chooser);
     info('file duration (s)', dur);
