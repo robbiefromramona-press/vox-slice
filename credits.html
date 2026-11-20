@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0814">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vox-Slice">
+  <meta property="og:title" content="Vox-Slice: chop the speech, keep the fire">
+  <meta property="og:description" content="Every library, font, model and image used by Vox-Slice, with its license.">
+  <meta property="og:image" content="https://vox-slice.pages.dev/brand/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vox-Slice logo beside a neon microphone and waveform">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vox-slice.pages.dev/brand/og-image.jpg">
+  <title>Credits and licenses | Vox-Slice</title>
+</head>
+<body>
+  <main class="pricing credits">
+    <header class="top">
+      <h1 class="wordmark" aria-label="Vox-Slice"><img class="wm-logo" src="/brand/logo-horizontal.webp" width="900" height="260" alt="" aria-hidden="true"></h1>
+      <p class="tagline">Credits and licenses</p>
+      <span class="fp-tag">A Fire-Press tool</span>
+    </header>
+
+    <section class="free-card" aria-label="About these credits">
+      <p>Vox-Slice stands on other people's open work. Here is everything it uses and the license each piece comes with. Speech recognition runs on your computer: the model is downloaded once from Hugging Face and your audio is never uploaded.</p>
+    </section>
+
+    <section class="credits-sec" aria-labelledby="c-models">
+      <h2 id="c-models">Speech models</h2>
+      <div class="table-wrap"><table class="credits-table">
+        <thead><tr><th scope="col">Name</th><th scope="col">Used for</th><th scope="col">License</th></tr></thead>
+        <tbody>
+        <tr><th scope="row"><a href="https://huggingface.co/Xenova/whisper-base.en" target="_blank" rel="noopener noreferrer">Xenova/whisper-base.en</a></th><td>Speech recognition, the default model (about 75 MB)</td><td>Apache-2.0 (Xenova ONNX conversion of OpenAI Whisper, MIT)</td></tr>
+        <tr><th scope="row"><a href="https://huggingface.co/Xenova/whisper-tiny.en" target="_blank" rel="noopener noreferrer">Xenova/whisper-tiny.en</a></th><td>Speech recognition, the fast model (about 40 MB)</td><td>Apache-2.0 (Xenova ONNX conversion of OpenAI Whisper, MIT)</td></tr>
+        <tr><th scope="row"><a href="https://huggingface.co/Xenova/whisper-small.en" target="_blank" rel="noopener noreferrer">Xenova/whisper-small.en</a></th><td>Speech recognition, the accurate model (about 250 MB)</td><td>Apache-2.0 (Xenova ONNX conversion of OpenAI Whisper, MIT)</td></tr>
+        <tr><th scope="row"><a href="https://github.com/openai/whisper" target="_blank" rel="noopener noreferrer">OpenAI Whisper</a></th><td>The original speech recognition model the three above are converted from</td><td>MIT</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+    <section class="credits-sec" aria-labelledby="c-libs">
+      <h2 id="c-libs">Libraries</h2>
+      <div class="table-wrap"><table class="credits-table">
+        <thead><tr><th scope="col">Name</th><th scope="col">Used for</th><th scope="col">License</th></tr></thead>
+        <tbody>
+        <tr><th scope="row"><a href="https://github.com/huggingface/transformers.js" target="_blank" rel="noopener noreferrer">Transformers.js (@huggingface/transformers)</a></th><td>Runs the Whisper models in your browser</td><td>Apache-2.0</td></tr>
+        <tr><th scope="row"><a href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer">ONNX Runtime Web</a></th><td>The engine that executes the models (WebAssembly)</td><td>MIT</td></tr>
+        <tr><th scope="row"><a href="https://github.com/breezystack/lamejs" target="_blank" rel="noopener noreferrer">@breezystack/lamejs</a></th><td>Encodes MP3 files</td><td><b class="flag">LGPL-3.0</b> (copyleft, see below)</td></tr>
+        <tr><th scope="row"><a href="https://github.com/Stuk/jszip" target="_blank" rel="noopener noreferrer">JSZip</a></th><td>Builds the ZIP download</td><td>MIT (offered as MIT or GPL-3.0-or-later; Vox-Slice uses it under MIT)</td></tr>
+        <tr><th scope="row"><a href="https://github.com/words/cmu-pronouncing-dictionary" target="_blank" rel="noopener noreferrer">cmu-pronouncing-dictionary</a></th><td>Pronunciations for the rhyme finder</td><td>ISC (data derived from the CMU Pronouncing Dictionary, BSD-style)</td></tr>
+        <tr><th scope="row"><a href="https://github.com/huggingface" target="_blank" rel="noopener noreferrer">Hugging Face jinja and tokenizers</a></th><td>Text handling inside Transformers.js</td><td>MIT and Apache-2.0</td></tr>
+        <tr><th scope="row">protobufjs, flatbuffers, long, platform and small helpers</th><td>Pulled in by ONNX Runtime Web and JSZip (pako, readable-stream and similar)</td><td>MIT, BSD-3-Clause, ISC, Apache-2.0, Zlib</td></tr>
+        <tr><th scope="row"><a href="https://vite.dev" target="_blank" rel="noopener noreferrer">Vite</a></th><td>Build tool (not shipped to your browser)</td><td>MIT</td></tr>
+        <tr><th scope="row"><a href="https://playwright.dev" target="_blank" rel="noopener noreferrer">Playwright</a></th><td>Browser testing (not shipped to your browser)</td><td>Apache-2.0</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+    <section class="credits-sec" aria-labelledby="c-fonts">
+      <h2 id="c-fonts">Fonts</h2>
+      <div class="table-wrap"><table class="credits-table">
+        <thead><tr><th scope="col">Name</th><th scope="col">Used for</th><th scope="col">License</th></tr></thead>
+        <tbody>
+        <tr><th scope="row"><a href="https://fonts.google.com/specimen/Bebas+Neue" target="_blank" rel="noopener noreferrer">Bebas Neue</a></th><td>Titles and the VOX-SLICE look</td><td>SIL OFL 1.1</td></tr>
+        <tr><th scope="row"><a href="https://rsms.me/inter/" target="_blank" rel="noopener noreferrer">Inter</a></th><td>Body text and controls</td><td>SIL OFL 1.1</td></tr>
+        <tr><th scope="row"><a href="https://fonts.google.com/specimen/Orbitron" target="_blank" rel="noopener noreferrer">Orbitron</a></th><td>Numbers and timecodes</td><td>SIL OFL 1.1</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+    <section class="credits-sec" aria-labelledby="c-art">
+      <h2 id="c-art">Artwork and code</h2>
+      <div class="table-wrap"><table class="credits-table">
+        <thead><tr><th scope="col">Name</th><th scope="col">Used for</th><th scope="col">License</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Vox-Slice logo, monogram, app icons, background and social card</th><td>Brand artwork from the Fire-Press Vox-Slice asset pack v1.0</td><td>&copy; Fire-Press, all rights reserved. The code is MIT; the artwork is not.</td></tr>
+        <tr><th scope="row"><a href="https://github.com/robbiefromramona-press/vox-slice" target="_blank" rel="noopener noreferrer">Vox-Slice source code</a></th><td>This app</td><td>MIT</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="credits-sec" aria-labelledby="c-copyleft">
+      <h2 id="c-copyleft">Copyleft, in plain English</h2>
+      <p><b>One copyleft piece is used: <a href="https://github.com/breezystack/lamejs" target="_blank" rel="noopener noreferrer">@breezystack/lamejs</a> (LGPL-3.0)</b>, the MP3 encoder. The LGPL is a "weak" copyleft license. You can use Vox-Slice and the MP3s it makes freely, including commercially: the license covers the encoder's code, not your audio. The condition is that if anyone changes the encoder itself and shares that version, they must share their changes under the same license, and anyone who ships the encoder must let people swap in their own copy of it. Vox-Slice is fully open source (MIT) and pulls the encoder in as an ordinary, unmodified package, so anyone can rebuild the app with a different or updated encoder.</p>
+      <p><b>JSZip</b> is offered under "MIT or GPL-3.0-or-later" and Vox-Slice takes the MIT option, so the strong GPL copyleft does not apply. No other GPL or copyleft dependency is used.</p>
+      <p>This is a good-faith summary, not legal advice. The license texts themselves are what count.</p>
+    </section>
+
+    <p><a class="back" href="/">Back to Vox-Slice</a> · <a class="back" href="/pricing">About</a> · <a data-testid="kofi-link" class="kofi-link" href="https://ko-fi.com/robbiefromramona" target="_blank" rel="noopener noreferrer">&#9749; Support on Ko-fi</a></p>
+  </main>
+
+  <script type="module" src="/src/credits.js"></script>
+</body>
+</html>

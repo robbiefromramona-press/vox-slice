@@ -1,5 +1,5 @@
 // Shared helpers for the Vox-Slice end-to-end suite.
-import { chromium } from 'playwright';
+import { chromium, firefox, webkit, devices } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -43,16 +43,21 @@ export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export const pct = (x) => (Math.round(x * 10) / 10).toFixed(1);
 
 // ---------------------------------------------------------------- browser
-const LAUNCH_ARGS = ['--enable-precise-memory-info', '--js-flags=--expose-gc'];
+// BROWSER = chromium (default) | msedge | firefox | webkit | iphone (WebKit with an iPhone profile)
+export const BROWSER = process.env.BROWSER || 'chromium';
+const LAUNCH_ARGS = BROWSER === 'chromium' || BROWSER === 'msedge' ? ['--enable-precise-memory-info', '--js-flags=--expose-gc'] : [];
+const engine = { chromium, msedge: chromium, firefox, webkit, iphone: webkit }[BROWSER];
+if (!engine) throw new Error('Unknown BROWSER ' + BROWSER);
+const channel = BROWSER === 'msedge' ? { channel: 'msedge' } : {};
+const ctxOpts = () => (BROWSER === 'iphone' ? { ...devices['iPhone 13'] } : { viewport: { width: 1440, height: 900 } });
 export async function launchShared() {
-  return chromium.launchPersistentContext(PROFILE, {
-    headless: true, acceptDownloads: true, httpCredentials: CREDS,
-    viewport: { width: 1440, height: 900 }, args: LAUNCH_ARGS,
+  return engine.launchPersistentContext(PROFILE + '-' + BROWSER, {
+    headless: true, acceptDownloads: true, httpCredentials: CREDS, ...channel, ...ctxOpts(), args: LAUNCH_ARGS,
   });
 }
 export async function launchFresh() {
-  const browser = await chromium.launch({ headless: true, args: LAUNCH_ARGS });
-  const ctx = await browser.newContext({ acceptDownloads: true, httpCredentials: CREDS, viewport: { width: 1440, height: 900 } });
+  const browser = await engine.launch({ headless: true, ...channel, args: LAUNCH_ARGS });
+  const ctx = await browser.newContext({ acceptDownloads: true, httpCredentials: CREDS, ...ctxOpts() });
   return { browser, ctx };
 }
 
@@ -277,7 +282,7 @@ export async function shot(page, name, opts = {}) {
 }
 
 export function saveResults() {
-  writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({
+  writeFileSync(path.join(OUT, `results-${BROWSER}.json`), JSON.stringify({
     base: BASE, when: new Date().toISOString(), results, metrics,
     hygiene: { consoleErrors: hygiene.consoleErrors, pageErrors: hygiene.pageErrors, hosts: Object.fromEntries(hygiene.hosts), bodies: hygiene.bodies, nonGet: hygiene.nonGet },
   }, null, 1));

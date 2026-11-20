@@ -10,8 +10,12 @@ Vox-Slice is **free, open source (MIT) and public**. Everyone gets the full tool
 - No password gate. `extras/password-gate/` keeps the old Netlify edge function and how to switch it back on.
 - `src/tier.js`: `FREE_FOR_ALL = true` makes `getUserTier()` return 'pro' for everyone. The 20-second free tier,
   Go Pro banner, tier label and How-to note are dormant (UI nodes tagged `data-tier-ui` are removed while the switch is on).
-- `/pricing` is the "free and open source" page with a Support button. Its link lives in ONE constant,
-  `SUPPORT_URL` in `src/pricing.js` (empty = "Tip jar coming soon", not clickable).
+- `/pricing` is the "free and open source" page with a plain Ko-fi link (`https://ko-fi.com/robbiefromramona`, new tab,
+  no Ko-fi scripts). The same link is in the app footer, on `/credits`, and in a small dismissible line after an export.
+- `/credits` (`credits.html`) lists every library, font, model and artwork with its license and explains the one
+  copyleft piece (LGPL-3.0 MP3 encoder). Update it whenever a dependency changes.
+- Brand: asset pack v1.0 is copied into `public/brand/` (never link to the concept-art folder). `tests/e2e/shots.mjs`
+  makes the before/after screenshots in `docs/`. e2e runs on any engine: `BROWSER=chromium|msedge|firefox|webkit|iphone`.
 - Footer link: Report a bug / Suggest a feature goes to GitHub Issues.
 
 ## Testing

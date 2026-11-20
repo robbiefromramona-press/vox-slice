@@ -3,10 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0B0B14">
   <meta name="description" content="Vox-Slice: drop in speech, pick the words you want, export them as clips. Runs in your browser. Nothing is uploaded. A Fire-Press tool.">
   <title>Vox-Slice</title>
+  <meta name="theme-color" content="#0B0814">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vox-Slice">
+  <meta property="og:title" content="Vox-Slice: chop the speech, keep the fire">
+  <meta property="og:description" content="Drop in speech, pick the words you want, export them as clips. Runs in your browser. Nothing is uploaded. A Fire-Press tool.">
+  <meta property="og:image" content="https://vox-slice.pages.dev/brand/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vox-Slice logo beside a neon microphone and waveform">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vox-slice.pages.dev/brand/og-image.jpg">
 </head>
 <body>
   <!-- shared icon shapes -->
@@ -45,7 +58,7 @@
   <div class="app">
     <aside class="side" aria-label="Vox-Slice navigation">
       <div class="fp">
-        <span class="fp-mark" aria-hidden="true">FP</span>
+        <img class="fp-mark" src="/brand/monogram.png" width="44" height="44" alt="" aria-hidden="true">
         <span class="fp-name">FIRE PRESS<small>Creator tools</small></span>
       </div>
       <nav class="tools" role="tablist" aria-label="Tools">
@@ -64,10 +77,7 @@
 
     <div class="content">
       <header class="top">
-        <h1 class="wordmark" aria-label="Vox-Slice">
-          <span class="vox" aria-hidden="true">VOX-</span><span class="slice" aria-hidden="true">SLICE</span>
-          <svg class="wm-spark" aria-hidden="true"><use href="#i-spark"/></svg>
-        </h1>
+        <h1 class="wordmark" aria-label="Vox-Slice"><img class="wm-logo" src="/brand/logo-horizontal.webp" width="900" height="260" alt="" aria-hidden="true"></h1>
         <p class="tagline">Chop the speech. Keep the fire.</p>
         <span class="fp-tag">A Fire-Press tool</span>
         <a class="tier-tag" data-tier-ui data-testid="tier-tag" data-upgrade-link href="/pricing" title="See what Pro adds"><span data-tier-summary>Free: files up to 20 s</span></a>
@@ -375,6 +385,7 @@
         <p class="foot-note"><b>Word timings are close, not perfect.</b> Use padding and the edge handles to fix clipped syllables. <b>Labelling a remix as parody keeps everybody out of trouble.</b></p>
         <p class="foot-privacy">Everything runs in your browser. Nothing is uploaded.</p>
         <p class="foot-family">Free and open source. <a data-testid="bug-link" href="https://github.com/robbiefromramona-press/vox-slice/issues/new/choose" target="_blank" rel="noopener noreferrer">Report a bug / Suggest a feature</a> · <a href="https://github.com/robbiefromramona-press/vox-slice" target="_blank" rel="noopener noreferrer">View the code</a></p>
+        <p class="foot-family"><a data-testid="kofi-link" class="kofi-link" href="https://ko-fi.com/robbiefromramona" target="_blank" rel="noopener noreferrer">&#9749; Support on Ko-fi</a> · <a data-testid="credits-link" href="/credits">Credits &amp; licenses</a> · <a href="/pricing">About</a></p>
         <p class="foot-family">Part of the Any-Press family</p>
       </footer>
     </div>

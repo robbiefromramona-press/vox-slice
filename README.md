@@ -45,8 +45,8 @@ attach private audio; describe what happened and your browser instead. See [CONT
 
 ## Support
 
-Vox-Slice is free. If it helps you, there will be a tip jar on the
-[support page](https://vox-slice.pages.dev/pricing) (coming soon).
+Vox-Slice is free. If it helps you, you can [support it on Ko-fi](https://ko-fi.com/robbiefromramona) (a plain link, no scripts).
+Every library, font, model and image it uses is listed on the [credits page](https://vox-slice.pages.dev/credits).
 
 ## How it is built
 
@@ -57,5 +57,5 @@ holds the security headers (cross-origin isolation for multi-threaded transcript
 
 ## License
 
-[MIT](LICENSE) (c) Fire-Press / Robbie. The optional password gate in `extras/password-gate/` is
+[MIT](LICENSE) (c) Fire-Press. The optional password gate in `extras/password-gate/` is
 adapted from MIT-licensed community code.

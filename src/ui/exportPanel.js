@@ -41,6 +41,18 @@ function zipName() {
   return 'vox-slice-clips.zip';
 }
 
+// A small, dismissible thank-you line after a finished export. The download has already started: this never blocks it.
+function showKofiNudge() {
+  const close = el('button', { type: 'button', 'aria-label': 'Dismiss', text: '×' });
+  const line = el('p', { class: 'kofi-nudge', 'data-testid': 'kofi-nudge' }, [
+    'Saved you some time? ',
+    el('a', { href: 'https://ko-fi.com/robbiefromramona', target: '_blank', rel: 'noopener noreferrer', text: '☕ Buy me a coffee' }),
+    close,
+  ]);
+  close.addEventListener('click', () => line.remove());
+  result.append(line);
+}
+
 async function exportZip() {
   const f = formats();
   if (!state.clips.length || !f.length) return;
@@ -78,6 +90,7 @@ async function exportZip() {
       const names = [...new Set(skipped.map((c) => getSource(c.sourceId)?.name || 'unknown'))];
       result.append(el('p', { class: 'warn', text: `${pluralise(skipped.length, 'clip')} skipped because the audio is not loaded (${names.join(', ')}). Drop the original file${names.length > 1 ? 's' : ''} to relink, then export again.` }));
     }
+    showKofiNudge();
     setStatus(`Exported ${pluralise(rendered, 'clip')}.`);
   } catch (err) {
     console.error(err);
