@@ -15,7 +15,7 @@ export default defineConfig({
     target: 'es2022',
     chunkSizeWarningLimit: 2500,
     // Two pages: the app, and the free-and-open-source page at /pricing.
-    rollupOptions: { input: { main: 'index.html', pricing: 'pricing.html' } },
+    rollupOptions: { input: { main: 'index.html', pricing: 'pricing.html', credits: 'credits.html' } },
   },
   optimizeDeps: { exclude: ['@huggingface/transformers'] },
 });

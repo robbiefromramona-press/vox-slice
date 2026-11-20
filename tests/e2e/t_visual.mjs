@@ -46,7 +46,7 @@ const desktop = {
     const page = await openApp(ctx);
     await page.evaluate(() => document.fonts.ready);
     const fonts = await page.evaluate(() => ({
-      wordmark: getComputedStyle(document.querySelector('.wordmark .vox')).fontFamily,
+      wordmark: getComputedStyle(document.querySelector('.fp-name, .tagline')).fontFamily,
       body: getComputedStyle(document.body).fontFamily,
       loaded: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family.replace(/"/g, '')),
       failed: [...document.fonts].filter((f) => f.status === 'error').map((f) => f.family),

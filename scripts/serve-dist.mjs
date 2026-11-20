@@ -6,7 +6,7 @@ import { readFileSync, existsSync, statSync, createReadStream } from 'node:fs';
 import { join, extname, resolve } from 'node:path';
 const root = resolve(process.argv[3] || 'dist');
 const port = Number(process.argv[2] || 5190);
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.wasm': 'application/wasm', '.svg': 'image/svg+xml', '.woff': 'font/woff', '.woff2': 'font/woff2', '.js.map': 'application/json' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.wasm': 'application/wasm', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.webmanifest': 'application/manifest+json', '.woff': 'font/woff', '.woff2': 'font/woff2', '.js.map': 'application/json' };
 const rules = [];
 let cur = null;
 for (const raw of readFileSync(join(root, '_headers'), 'utf8').split(/\r?\n/)) {
